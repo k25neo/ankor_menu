@@ -1,0 +1,88 @@
+.anchor-menu {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    width: 60px;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.29);
+    background: white;
+    color: white;
+    z-index: 100;
+    transform: translateY(-50%);
+}
+.anchor-menu li {
+    text-align: center;
+    height: 54px;
+    position: relative;
+    display: block;
+    padding: 16px 8px;
+    /* border-bottom: 1px solid #ffffff30; */
+    perspective: 770px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anchor-menu li img {
+    width: 32px;
+}
+.anchor-menu li svg {
+    width: 26px;
+    height: 26px;
+}
+.anchor-menu li:hover,
+.anchor-menu li.active{
+    background:#2c9d68;
+}
+.anchor-menu li:hover:after,
+.anchor-menu li.active:after{
+    background:#2c9d68;
+}
+.anchor-menu li:hover .icon use,
+.anchor-menu li.active .icon use{
+    fill: white;
+}
+.anchor-menu .icon use{
+    fill: #2c9d68;
+}
+.anchor-menu li svg path {
+    fill: inherit;
+}
+.anchor-menu li:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background:    #fff;
+}
+.anchor-menu li span {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background: #30ae73;
+    padding: 0 25px;
+    height: 100%;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 3.3;
+    border-radius: 6px 0 0 6px;
+    z-index: -2;
+    -webkit-transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: rotateY(-88deg);
+    -ms-transform: rotateY(-88deg);
+    transform: rotateY(-88deg);
+    transition: ease transform 300ms;
+}
+.anchor-menu li:hover span,
+.anchor-menu li.active span{
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
