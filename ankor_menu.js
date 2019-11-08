@@ -31,6 +31,7 @@
                 this.$anchor_menu.each(function(i, el){
                     var $el = $(el);
                     var item = {};
+                    item.el = el;
                     item.icon = $el.data('icon');
                     item.svg = $el.data('svg');
                     item.title = $el.data('title');
@@ -54,7 +55,7 @@
                 $('.anchor-menu').on('click', 'li', this.scrollTop.bind(this));
                 $(document).on('scroll', this.scrollCheck.bind(this));
                 $(window).on('resize', this.updateElementsData.bind(this));
-                $(window).load(this.updateElementsData.bind(this));
+                $(window).on('load', this.updateElementsData.bind(this));
             },
             scrollTop: function(e){
                 var $el = $(e.currentTarget);
