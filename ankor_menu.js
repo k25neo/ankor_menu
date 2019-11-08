@@ -1,6 +1,6 @@
-    /* Анкор Меню 
+    /* Anchor Menu 
        zhuravlev.vu@yandex.ru 
-       Version: 1.2
+       Version: 1.3
     */
     if ( window.anchorMenu ) {
         function AnchorMenu(){
@@ -42,9 +42,19 @@
                     this.menuData.push(item);
                 }.bind(this));
             },
+            updateElementsData: function(){
+                this.menuData.forEach(function(el, i){
+                    var $el = $(el.el);
+                    el.offsetTop = $el.offset().top;
+                    el.height = $el.height();
+                });
+                this.scrollCheck();
+            },
             addHandlers: function(){
                 $('.anchor-menu').on('click', 'li', this.scrollTop.bind(this));
                 $(document).on('scroll', this.scrollCheck.bind(this));
+                $(window).on('resize', this.updateElementsData.bind(this));
+                $(window).load(this.updateElementsData.bind(this));
             },
             scrollTop: function(e){
                 var $el = $(e.currentTarget);
