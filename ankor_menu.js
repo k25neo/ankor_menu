@@ -2,7 +2,7 @@
        zhuravlev.vu@yandex.ru 
        Version: 1.3
     */
-    if ( window.anchorMenu ) {
+
         function AnchorMenu(){
             this.init();
         }
@@ -94,5 +94,9 @@
                 }.bind(this));
             }
         };
+
+$(window).on('load', function(){
+    if ( window.anchorMenu ) {
         window.anchorMenu = new AnchorMenu();
     }
+});   
